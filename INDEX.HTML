@@ -1,0 +1,81 @@
+<!-- Programador: Armando Emmanuel Gomez Almaraz
+    Grado y Grupo: 4G
+    Probrematica: La empresa "soy extraordinario" desea registrar a los candidatos para ocupar un puesto administrativo.
+    Desarrollar un programa para registrar el nombre, edad genero(masculino y femenino) y alos años de experiencia,
+    de cada uno de los candidatos -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Candidatos a segunda entrevista</title>
+</head>
+<body>
+    <script>
+        // Variables
+        var respuesta = true;
+
+        do {
+            var Nombre;
+            var Edad = 0;
+            var Genero = "";
+            var Exp = 0;
+            var no = 0;
+            alert("BIENVENIDO A LA EMPRESA >>>>SOY EXTRAORDINARIO<<<<");
+                    //Solicitar y validar nombre
+                    do {
+                        Nombre = prompt("Registra tu Nombre: ");
+                        if (Nombre.length < 3 || Nombre.length > 30) { //length sirve para validar la cantidad de caracteres 
+                            alert("Nombre no válido");
+                        }
+                    } while (Nombre.length < 3 || Nombre.length > 30);
+
+                    //Solicitar y validar edad
+                    do {
+                        Edad = prompt("Registra tu Edad: ");
+                        if (Edad < 18 || Edad > 40 ) {
+                            alert("Registra una edad válida (entre 18 y 40 años)");
+                        }
+                    } while (Edad < 18 || Edad > 40 );
+
+                    //Solicitar y validar género
+                    do {
+                        Genero = prompt("Ingresa tu género (M para Masculino o F para Femenino): ");
+                        if (Genero === "M" || Genero === "m" || Genero === "F" || Genero === "f") {
+                            alert("Género válido");
+                        } else {
+                            alert("Ingresa un género válido (M para Masculino o F para Femenino)");
+                        }
+                    } while (!(Genero === "M" || Genero === "m" || Genero === "F" || Genero === "f"));
+                    //Solicitar y validar años de experiencia
+                    do {
+                        Exp = prompt("Registra tus años de Experiencia: ");
+                        if (Exp < 1 || Exp > 15 ) {
+                            alert("Registra una experiencia válida (entre 1 y 15 años)");
+                        }
+                    } while (Exp < 1 || Exp > 15 );
+
+                    //Verificar si el candidato pasa a la segunda fase
+                    if (Edad >= 24 && Edad <= 35 && Exp >= 3 && Exp <= 15) {
+                        //Candidato seleccionado a la segunda fase
+                        alert("¡FELICIDADES HAS LLEGADO A LA SEGUNDA FASE!");
+                        document.write("<p>SOLICITUD ACEPTADA :) </p>");
+                        document.write("<p>Nombre: " + Nombre + "</p>");
+                        document.write("<p>Edad: " + Edad + "</p>");
+                        document.write("<p>Género: " + Genero + "</p>");
+                        document.write("<p>Años de Experiencia: " + Exp + "</p>");
+                    } else {
+                        //candidatos que no pasaron a la siguente fase
+                        alert("Lo siento, no pasaste a la segunda fase.");
+                        document.write("<p>SOLICITUD RECHAZADA :( </p>");
+                        document.write("<p>Nombre: " + Nombre + "</p>");
+                        document.write("<p>Edad: " + Edad + "</p>");
+                        document.write("<p>Género: " + Genero + "</p>");
+                        document.write("<p>Años de Experiencia: " + Exp + "</p>");
+                    }
+
+            respuesta = confirm("¿Desea agregar otro candidato?");
+        } while (respuesta);
+    </script>
+</body>
+</html>
